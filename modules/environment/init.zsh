@@ -55,6 +55,14 @@ path=(
   $path
 )
 
+# add sublime bin to path if installed
+[ -d '/Applications/Sublime Text 2.app/Contents/SharedSupport/bin' ] && {
+  path=(
+    $path 
+    /Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin
+  )
+}
+
 for path_file in /etc/paths.d/*(.N); do
   path+=($(<$path_file))
 done
@@ -69,6 +77,12 @@ fi
 export EDITOR="vim"
 export VISUAL="vim"
 export PAGER='less'
+
+# set editor to subl if available
+[ $commands[subl] ] && {
+  export EDITOR='subl -w'
+  export VISUAL='subl -w'  
+}
 
 # Grep
 if zstyle -t ':omz:environment:grep' color; then
