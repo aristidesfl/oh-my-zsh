@@ -58,7 +58,7 @@ path=(
 # add sublime bin to path if installed
 [ -d '/Applications/Sublime Text 2.app/Contents/SharedSupport/bin' ] && {
   path=(
-    $path 
+    $path
     /Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin
   )
 }
@@ -80,8 +80,8 @@ export PAGER='less'
 
 # set editor to subl if available
 [ $commands[subl] ] && {
-  export EDITOR='subl -w'
-  export VISUAL='subl -w'  
+  export EDITOR='subl'
+  export VISUAL='subl'
 }
 
 # Grep
